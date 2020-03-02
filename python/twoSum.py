@@ -1,12 +1,10 @@
 #/bin/python3
 
-def twoSum(nums, target):
-  for i in nums:
-      for j in nums:
-          if i == target - j:
-              return i,j
-nums = {2, 7, 11, 15}
-target = 9
-
-res = twoSum(nums, target)
-print(res)
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        hash_table={}
+        for i, num in enumerate(nums):
+            if target - num in hash_table:
+                return([hash_table[target - num], i])
+            hash_table[num] = i
+        return []
